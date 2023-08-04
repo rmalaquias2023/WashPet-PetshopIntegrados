@@ -1,0 +1,25 @@
+<!doctype html>
+{% extends "index.html"%}
+{% load bootstrap5 %}
+{% block principal %}
+  <main>
+    <h1 class="text-body-emphasis">Fale conosco</h1>
+    <p> 
+      Envie uma mensagem através do formuláario abaixo ou ligue para o telefone {{telefone}} e fale com 
+      o responsável {{responsavel}}.
+    </p>
+
+    {% if sucesso %}
+      <p class= "alert alert-success"> Mensagem enviada com sucesso, em breve alguém de nossa equipe entrará em contato!</p>
+    {% else %}
+
+    <form action ="" method = "post" id = "form" novalidate>
+    {% csrf_token %}  
+    {% bootstrap_form form %}
+  
+    <button type="submit" class = "btn btn-primary btn-block"> Enviar! </button>
+    </form>
+    {% endif %}
+  {% endblock %}
+  </main>
+
