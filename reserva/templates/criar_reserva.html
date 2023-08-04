@@ -1,0 +1,36 @@
+<!doctype html>
+{% extends "index.html"%}
+{% load bootstrap5 %}
+{% block principal %}
+
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <h1>WashPet – Reserve o banho do seu Pet</h1>
+</header>
+
+<main>
+  <h3 class="text-body-emphasis">Faça sua reserva de banho para o seu Pet</h3>
+
+  {% if sucesso %}
+  <p class= "alert alert-success"> Reserva enviada com sucesso! Aguarde o e-mail de confirmação!</p>
+  {% else %}
+
+  <form action ="" method = "post" id = "form" novalidate>
+  {% csrf_token %}  
+  {% bootstrap_form form %}
+
+  <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+</form>
+  {% endif %}
+{% endblock %}
+
+  <hr class="col-3 col-md-2 mb-5">
+</main>
+<footer class="pt-5 my-5 text-body-secondary border-top">
+  WashPet - banhos para seus pets
+</footer>
+</div>
+
+<script src="../static/bootstrap.bundle.min.js"></script>
+
+      
