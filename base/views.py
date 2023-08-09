@@ -3,9 +3,6 @@ from base.forms import contatoForm
 
 
 def inicio(request):
-    return render (request, 'index.html')
-
-def contato(request):
     sucesso = False 
     form = contatoForm (request.POST or None)
     if form.is_valid():
@@ -18,5 +15,5 @@ def contato(request):
         'form':form,
         'sucesso':sucesso
     }
-
-    return render(request, 'contato.html',contexto)
+    return render (request, 'index.html', contexto)
+    
